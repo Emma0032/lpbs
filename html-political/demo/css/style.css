@@ -1,0 +1,337 @@
+==========================================
+    Primary Controls
+==========================================
+*/
+html {
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 0.3rem;
+}
+html, body {
+  font-family: 'Poppins', sans-serif;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #171A23;
+  border-radius: 0;
+  color: #FFFFFF;
+}
+
+::selection {
+  background-color: #FF5926;
+  color: #FFFFFF;
+}
+
+button:focus, button:active, button:hover, .btn:focus, .btn:active, .btn:hover, .badge:focus, .badge:active, .badge:hover {
+  box-shadow: none !important;
+  outline: none;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 {
+  color: #171A23;
+}
+
+img {
+  max-width: 100%;
+}
+
+figure img {
+  width: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.form-control::placeholder {
+  color: #171A23;
+}
+
+.page-link:focus {
+  box-shadow: none;
+}
+
+.input-group-btn:not(:first-child) > .btn-group:focus, .input-group-btn:not(:first-child) > .btn-group:active, .input-group-btn:not(:first-child) > .btn-group:hover,
+.input-group-btn:not(:first-child) > .btn:focus,
+.input-group-btn:not(:first-child) > .btn:active,
+.input-group-btn:not(:first-child) > .btn:hover {
+  z-index: 1;
+}
+
+.form-control, .custom-select {
+  height: auto;
+}
+.form-control:focus, .form-control:active, .form-control:hover, .custom-select:focus, .custom-select:active, .custom-select:hover {
+  box-shadow: none;
+  outline: none;
+  border-color: #333;
+  z-index: 2;
+}
+
+.form-check {
+  padding-left: 0;
+}
+
+.form-check label {
+  position: relative;
+  padding-left: 2rem;
+  cursor: pointer;
+}
+
+.form-check label:before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  background-color: #2330E6;
+  transition: all 0.3s linear;
+  position: absolute;
+  top: 0.2rem;
+  left: 0;
+}
+
+.form-check label:after {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  border: 0.1rem solid #FF5926;
+  background-color: #FF5926;
+  color: #FFFFFF;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0.1rem;
+  left: 0;
+  font-size: 0.8rem;
+}
+
+.form-check input {
+  display: none;
+}
+
+.form-check input:checked ~ label:before {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.form-check input:checked ~ label:after {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+a#scrollUp {
+  background: #FF5926;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  right: 30px;
+  bottom: 75px;
+  text-align: center;
+  line-height: 40px;
+  color: #FFFFFF;
+  font-size: 20px;
+  opacity: 0.9;
+  border-radius: 100%;
+}
+
+.btn {
+  
+  padding: 11px 22px !important;
+  border-radius: 5px;
+  position: relative;
+  font-weight: 700;
+  z-index: 1;
+  overflow: hidden;
+}
+.btn:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #09215A;
+  border-color: #09215A;
+  z-index: -1;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+.btn:hover:after {
+  width: 100%;
+}
+
+/* ========================================================== */
+/* 			                Header Area Start               */
+/* ========================================================== */
+.btn-header {
+  float: right;
+  top: -13px;
+}
+
+.header-box {
+  padding: 10px 0;
+}
+.header-box img {
+  max-height:50px;
+}
+ .btn-header {
+   text-decoration: none;
+   padding:10px 20px;
+   border-radius: 4px;
+ }
+.header-sticky {
+  background: #FFFFFF;
+  position: fixed;
+  top: 0;
+  animation: header-top 1s ease;
+  right: 0;
+  left: 0;
+  z-index: 99;
+}
+
+/* ========================================================== */
+/* 			                Banner Area Start               */
+/* ========================================================== */
+.banner-area {
+  background-image: url(./../../assets/image/hero-bg-img1.jpg);
+}
+.banner-wrap {
+ padding: 10% 0 ;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.banner-countent {
+  margin: auto;
+  text-align: center;
+}
+
+.btn-banner {
+  padding: 15px 40px !important;
+  margin: 5px;
+  border-width: 3px;
+
+}
+.btn-banner:hover {
+  
+  border-color:#000!important
+  border-radius : 4px;
+  color:#fff;
+}
+ 
+/* ========================================================== */
+/* 			                Demos Area Start               */
+/* ========================================================== */
+.demos-area {
+  
+}
+
+.demos-images {
+  transition: 0.4s;
+}
+.demos-images:hover {
+  transform: translateY(-15px);
+  transition: 0.4s;
+}
+
+/* ========================================================== */
+/* 			                page Area Start               */
+/* ========================================================== */
+.Pages-area {
+  background: linear-gradient(180deg, #1F242F 0%, #161C28 100%);
+}
+
+/* ========================================================== */
+/* 			                Features-2 Area Start               */
+/* ========================================================== */
+.features-category-icon {
+  float: left;
+  font-size: 20px;
+}
+
+/* ========================================================== */
+/* 			                cta Area Start               */
+/* ========================================================== */
+.container.cta-center {
+  padding: 5% 0;
+ 
+}
+
+.cta-box {
+  margin: auto;
+}
+
+/* ============================================== 
+  Media Query : 1200px
+============================================== */
+/* ============================================== 
+  Media Query : 991px
+============================================== */
+/* ============================================== 
+  Media Query : 767px
+============================================== */
+@media only screen and (max-width: 767px) {
+  .banner-countent h1 {
+    width: unset !important;
+  }
+
+  .banner-countent p {
+    width: unset !important;
+  }
+
+  .section-title p {
+    width: unset !important;
+  }
+
+  .features-category-icon {
+    float: unset;
+    font-size: 30px;
+  }
+
+  .features-category-countent {
+    margin: 0 !important;
+  }
+}
+
+
+
+
+/* Colors */
+.btn-primary, .bg-primary {
+  background-color: #09215A!important;
+border-color: #09215A ;
+}
+
+.btn-primary:hover {
+  background-color: #1e4090;
+border-color: #1e4090 ;
+}
+
+.btn-danger {
+  background-color: #DC3545;
+border-color: #DC3545 ;
+}
+
+.btn-danger:hover {
+  background-color: #b13642;
+border-color: #b13642;
+}
+
