@@ -4,12 +4,10 @@
 <div class="container">
   @foreach ($chibokchats as $chat)
     @if (Auth::user()->id !== $chat->user_id)
-      <div class="d-block">
-        <div class="d-flex align-items-start flex-column bd-highlight">
-          <p class="fw-bold fs-5">{{ $chat->user->fullname }}</p>
-          <p class="small p-1 rounded-3" style="background-color: #f5f6f7;">{{ $chat->message }}</p>
-          <p class="small mb-1 rounded-3 text-muted">{{ $chat->created_at->diffForHumans() }}</p>
-        </div>
+      <div class="d-flex align-items-start flex-column bd-highlight">
+        <p class="fw-bold fs-5">{{ $chat->user->fullname }}</p>
+        <p class="small p-1 rounded-3" style="background-color: #f5f6f7;">{{ $chat->message }}</p>
+        <p class="small mb-1 rounded-3 text-muted">{{ $chat->created_at->diffForHumans() }}</p>
       </div>
     @else
       <div class="d-flex align-items-end flex-column">
