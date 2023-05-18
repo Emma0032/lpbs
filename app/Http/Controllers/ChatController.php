@@ -126,10 +126,24 @@ class ChatController extends Controller
      */
     public function sendChat(Request $request)
     {
+        if ($request->hasFile('message')) {
+            $message = $request->file('message');
+            $input['message'] = time().'.'.$message->extension();
+
+            $destinationMessageImage = 'images/messages';
+
+            //-------------[ Resize Image ]------------
+            $img = Image::make($message->path());
+            $img->resize(200, 200, function ($constraint) {})->save($destinationMessageImage.'/'.$input['message']);
+        }
+
         if (auth()->user()->local_government == 'Askira/Uba') {
             # code...
             $askirachat = new AskiraChat;
             $askirachat->message = $request->message;
+            if (($request->hasFile('message'))) {
+                $askirachat->message = $input['message'];
+            }
             $askirachat->user()->associate($request->user());
             $askirachat->save();
             return back();
