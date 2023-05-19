@@ -68,9 +68,5 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(ChatController::class)->group(function () {
     // General Group Chat Route
     Route::get('group-chat', [ChatController::class, 'generalIndex'])->name('general.chat');
-    // Route::get('chats', [ChatController::class, 'fetchMessages'])->name('fetch.chat');
     Route::post('chats', [ChatController::class, 'sendChat'])->name('send.chat');
-
-    // Admin Group Chat Route
-    // Route::get()->name();
 });
