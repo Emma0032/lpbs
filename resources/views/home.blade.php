@@ -10,8 +10,12 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-0">{{ $user->fullname }}</h5>
                         <small class="text-muted">{{ $user->local_government }}</small>
-                        <small class="text-muted">{{ $user->ward }}</small>
-                        <small class="text-muted">{{ $user->polling_unit }}</small>
+                        <small class="text-muted">{{ $user->ward }}, {{ $user->polling_unit }}</small>
+                        @if(auth()->user()->email_verified_at == NULL)
+                            <small class="text-danger">Unverified</small>
+                        @else
+                            <small class="text-success">Verified</small>
+                        @endif
                     </div>
                     <p class="mb-0">{{ $user->email }}</p>
                     <small class="text-muted">{{ $user->phone_number }}</small>
@@ -23,8 +27,12 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-0">{{ $user->fullname }}</h5>
                         <small class="text-muted">{{ $user->local_government }}</small>
-                        <small class="text-muted">{{ $user->ward }}</small>
-                        <small class="text-muted">{{ $user->polling_unit }}</small>
+                        <small class="text-muted">{{ $user->ward }}, {{ $user->polling_unit }}</small>
+                        @if(auth()->user()->email_verified_at == NULL)
+                            <small class="text-danger">Unverified</small>
+                        @else
+                            <small class="text-success">Verified</small>
+                        @endif
                     </div>
                     <p class="mb-0">{{ $user->email }}</p>
                     <small class="text-muted">{{ $user->phone_number }}</small>
@@ -36,8 +44,12 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-0">{{ $user->fullname }}</h5>
                         <small class="text-muted">{{ $user->local_government }}</small>
-                        <small class="text-muted">{{ $user->ward }}</small>
-                        <small class="text-muted">{{ $user->polling_unit }}</small>
+                        <small class="text-muted">{{ $user->ward }}, {{ $user->polling_unit }}</small>
+                        @if(auth()->user()->email_verified_at == NULL)
+                            <small class="text-danger">Unverified</small>
+                        @else
+                            <small class="text-success">Verified</small>
+                        @endif
                     </div>
                     <p class="mb-0">{{ $user->email }}</p>
                     <small class="text-muted">{{ $user->phone_number }}</small>
@@ -49,8 +61,12 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-0">{{ $user->fullname }}</h5>
                         <small class="text-muted">{{ $user->local_government }}</small>
-                        <small class="text-muted">{{ $user->ward }}</small>
-                        <small class="text-muted">{{ $user->polling_unit }}</small>
+                        <small class="text-muted">{{ $user->ward }}, {{ $user->polling_unit }}</small>
+                        @if(auth()->user()->email_verified_at == NULL)
+                            <small class="text-danger">Unverified</small>
+                        @else
+                            <small class="text-success">Verified</small>
+                        @endif
                     </div>
                     <p class="mb-0">{{ $user->email }}</p>
                     <small class="text-muted">{{ $user->phone_number }}</small>
@@ -62,8 +78,12 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-0">{{ $user->fullname }}</h5>
                         <small class="text-muted">{{ $user->local_government }}</small>
-                        <small class="text-muted">{{ $user->ward }}</small>
-                        <small class="text-muted">{{ $user->polling_unit }}</small>
+                        <small class="text-muted">{{ $user->ward }}, {{ $user->polling_unit }}</small>
+                        @if(auth()->user()->email_verified_at == NULL)
+                            <small class="text-danger">Unverified</small>
+                        @else
+                            <small class="text-success">Verified</small>
+                        @endif
                     </div>
                     <p class="mb-0">{{ $user->email }}</p>
                     <small class="text-muted">{{ $user->phone_number }}</small>
@@ -75,8 +95,12 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-0">{{ $user->fullname }}</h5>
                         <small class="text-muted">{{ $user->local_government }}</small>
-                        <small class="text-muted">{{ $user->ward }}</small>
-                        <small class="text-muted">{{ $user->polling_unit }}</small>
+                        <small class="text-muted">{{ $user->ward }}, {{ $user->polling_unit }}</small>
+                        @if(auth()->user()->email_verified_at == NULL)
+                            <small class="text-danger">Unverified</small>
+                        @else
+                            <small class="text-success">Verified</small>
+                        @endif
                     </div>
                     <p class="mb-0">{{ $user->email }}</p>
                     <small class="text-muted">{{ $user->phone_number }}</small>
@@ -88,8 +112,12 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-0">{{ $user->fullname }}</h5>
                         <small class="text-muted">{{ $user->local_government }}</small>
-                        <small class="text-muted">{{ $user->ward }}</small>
-                        <small class="text-muted">{{ $user->polling_unit }}</small>
+                        <small class="text-muted">{{ $user->ward }}, {{ $user->polling_unit }}</small>
+                        @if(auth()->user()->email_verified_at == NULL)
+                            <small class="text-danger">Unverified</small>
+                        @else
+                            <small class="text-success">Verified</small>
+                        @endif
                     </div>
                     <p class="mb-0">{{ $user->email }}</p>
                     <small class="text-muted">{{ $user->phone_number }}</small>
@@ -101,8 +129,12 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-0">{{ $user->fullname }}</h5>
                         <small class="text-muted">{{ $user->local_government }}</small>
-                        <small class="text-muted">{{ $user->ward }}</small>
-                        <small class="text-muted">{{ $user->polling_unit }}</small>
+                        <small class="text-muted">{{ $user->ward }}, {{ $user->polling_unit }}</small>
+                        @if(auth()->user()->email_verified_at == NULL)
+                            <small class="text-danger">Unverified</small>
+                        @else
+                            <small class="text-success">Verified</small>
+                        @endif
                     </div>
                     <p class="mb-0">{{ $user->email }}</p>
                     <small class="text-muted">{{ $user->phone_number }}</small>
@@ -114,8 +146,12 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-0">{{ $user->fullname }}</h5>
                         <small class="text-muted">{{ $user->local_government }}</small>
-                        <small class="text-muted">{{ $user->ward }}</small>
-                        <small class="text-muted">{{ $user->polling_unit }}</small>
+                        <small class="text-muted">{{ $user->ward }}, {{ $user->polling_unit }}</small>
+                        @if(auth()->user()->email_verified_at == NULL)
+                            <small class="text-danger">Unverified</small>
+                        @else
+                            <small class="text-success">Verified</small>
+                        @endif
                     </div>
                     <p class="mb-0">{{ $user->email }}</p>
                     <small class="text-muted">{{ $user->phone_number }}</small>
@@ -128,8 +164,12 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-0">{{ $user->fullname }}</h5>
                         <small class="text-muted">{{ $user->local_government }}</small>
-                        <small class="text-muted">{{ $user->ward }}</small>
-                        <small class="text-muted">{{ $user->polling_unit }}</small>
+                        <small class="text-muted">{{ $user->ward }}, {{ $user->polling_unit }}</small>
+                        @if(auth()->user()->email_verified_at == NULL)
+                            <small class="text-danger">Unverified</small>
+                        @else
+                            <small class="text-success">Verified</small>
+                        @endif
                     </div>
                     <p class="mb-0">{{ $user->email }}</p>
                     <small class="text-muted">{{ $user->phone_number }}</small>

@@ -5,6 +5,7 @@ use App\Http\Controllers\SlideController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 use App\Http\Controllers\BypassController;
 
@@ -55,7 +56,7 @@ Route::controller(BlogController::class)->group(function () {
     Route::delete('blog/{id}/delete', [BlogController::class, 'destroy'])->name('blog.delete');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
