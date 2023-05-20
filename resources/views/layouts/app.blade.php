@@ -151,12 +151,12 @@
                   </ul>
                 </li>
 
-                <li class="nav-item"> <a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('group.chat') }}">Group</a></li>
 
                 @auth
                   @if(Auth::user()->id == '1')
                     <li class="nav-item"> <a class="nav-link cart-bar" href="{{ route('review.approval') }}">
-                      <i class="im im-shopping-cart"></i><span>2</span></a>
+                      <i class="im im-shopping-cart"></i><span>{{ \App\Models\Review::count() }}</span></a>
                     </li>
                   @endif
                 @endauth
