@@ -69,7 +69,8 @@
     <div class="header-bottombar">
       <div class="container">
         <nav class="header-navbar navbar navbar-expand-lg">
-          <a class="navbar-brand" href="/">Movement For The Emancipation of Southern Borno</a>
+          <img src="{{ asset('logo.png') }}" alt="" width="250" height="80">
+          {{-- <a class="navbar-brand" href="/">Movement For The Emancipation of Southern Borno</a> --}}
           <div class="collapse navbar-collapse" id="navbar-menu">
             <nav class="navbar-mean ms-auto">
               <ul class="navbar-nav">

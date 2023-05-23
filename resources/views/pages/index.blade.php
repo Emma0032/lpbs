@@ -49,13 +49,14 @@
     <div class="header-bottombar">
       <div class="container">
         <nav class="header-navbar navbar navbar-expand-lg">
-          <a class="navbar-brand" href="/">Movement For The Emancipation of Southern Borno</a>
+          <img src="{{ asset('logo.png') }}" alt="" width="250" height="80">
+          {{-- <a class="navbar-brand" href="/">Movement For The Emancipation of Southern Borno</a> --}}
           <div class="collapse navbar-collapse" id="navbar-menu">
             <nav class="navbar-mean ms-auto">
               <ul class="navbar-nav">
                 <li class="nav-item"> <a class="nav-link" href="/">Home</a></li>
 
-                <li class="nav-item"> <a class="nav-link" href="#aboutSection">About</a></li>
+                <li class="nav-item"> <a class="nav-link" href="about.html">About</a></li>
 
                 <li class="nav-item">
                   <a class="nav-link toogler" href="#"> Blog </a>
@@ -65,7 +66,15 @@
                   </ul>
                 </li>
 
-                <li class="nav-item"> <a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('group.chat') }}">Group</a></li>
+
+                @auth
+                  @if(Auth::user()->id == '1')
+                    <li class="nav-item"> <a class="nav-link cart-bar" href="{{ route('review.approval') }}">
+                      <i class="im im-shopping-cart"></i><span>{{ \App\Models\Review::count() }}</span></a>
+                    </li>
+                  @endif
+                @endauth
                       
                 <li class="nav-item"> <a class="nav-link search-bar" data-bs-toggle="modal"
                     data-bs-target="#searchmodal" href="#"><i class="im im-magnifier"></i></a></li>
