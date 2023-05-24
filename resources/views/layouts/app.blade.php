@@ -162,8 +162,7 @@
                   @endif
                 @endauth
                       
-                <li class="nav-item"> <a class="nav-link search-bar" data-bs-toggle="modal"
-                    data-bs-target="#searchmodal" href="#"><i class="im im-magnifier"></i></a></li>
+                <li class="nav-item"> <a class="nav-link search-bar" data-bs-toggle="modal" data-bs-target="#searchmodal" href="#"><i class="im im-magnifier"></i></a></li>
               </ul>
             </nav>
             <div class="modal fade" id="searchmodal" tabindex="-1" role="dialog">
