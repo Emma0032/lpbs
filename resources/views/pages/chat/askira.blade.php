@@ -20,7 +20,7 @@
   @endforeach
 
   <form method="POST" action="{{ route('send.chat') }}" class="text-muted d-flex justify-content-start align-items-center p-1 bg-white" id="sendChat"
-   style="bottom: 0; position: fixed; width: 90em;">
+   style="bottom: 0; position: fixed; width: 80em;">
     @csrf
 
     <input type="text" class="form-control form-control-lg" placeholder="Type message" name="message">
