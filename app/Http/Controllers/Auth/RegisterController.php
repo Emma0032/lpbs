@@ -8,6 +8,11 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\OtpMail;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -77,5 +82,20 @@ class RegisterController extends Controller
             'polling_unit' => $data['polling_unit'],
             'password' => Hash::make($data['password']),
         ]);
+
+        // Send verification email
+        event(new Registered($user));
+        $this->sendVerificationEmail($user);
+
+        return $user;
+    }
+
+    protected function sendVerificationEmail($user)
+    {
+        $otp = generateOTP();
+        storeOTPInDatabase($user, $otp);
+
+        $mail = new OtpMail($otp);
+        Mail::to($user->email)->send($mail);
     }
 }

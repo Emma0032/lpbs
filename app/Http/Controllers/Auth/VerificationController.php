@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OtpMail;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Verified;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 class VerificationController extends Controller
 {
@@ -45,26 +48,38 @@ class VerificationController extends Controller
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
 
-    public function verify(Request $request)
+    // public function verify(Request $request)
+    // {
+    //     $user = Auth::user();
+
+    //     if (!$user->hasVerifiedEmail()) {
+    //         $otp = Str::random(6); // Generate a random 6-digit OTP
+
+    //         // Save the OTP to the user's record in the database
+    //         $user->otp_code = $otp;
+    //         $user->save();
+
+    //         // Send the OTP to the user's email
+    //         Mail::to($user->email)->send(new OtpMail($otp));
+
+    //         // Redirect or return a response as needed
+    //         // For example, you can redirect back to the verification page with a success message
+    //         return redirect()->back()->with('success', 'OTP has been sent to your email for verification.');
+    //     }
+
+    //     // User already verified, handle accordingly
+    // }
+    public function verify(EmailVerificationRequest $request)
     {
-        $user = Auth::user();
-
-        if (!$user->hasVerifiedEmail()) {
-            $otp = Str::random(6); // Generate a random 6-digit OTP
-
-            // Save the OTP to the user's record in the database
-            $user->otp_code = $otp;
-            $user->save();
-
-            // Send the OTP to the user's email
-            Mail::to($user->email)->send(new OtpMail($otp));
-
-            // Redirect or return a response as needed
-            // For example, you can redirect back to the verification page with a success message
-            return redirect()->back()->with('success', 'OTP has been sent to your email for verification.');
+        if ($request->user()->hasVerifiedEmail()) {
+            return redirect()->intended(config('fortify.home'))->with('verified', true);
         }
 
-        // User already verified, handle accordingly
+        if ($request->user()->markEmailAsVerified()) {
+            event(new Verified($request->user()));
+        }
+
+        return redirect()->intended(config('fortify.home'))->with('verified', true);
     }
 
     public function resend(Request $request)
@@ -76,6 +91,6 @@ class VerificationController extends Controller
         $request->user()->sendEmailVerificationNotification();
 
         // Call the sendOtp method instead of the default behavior
-        return $this->sendOtp($request);
+        return $this->verify($request);
     }
 }

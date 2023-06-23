@@ -5,7 +5,8 @@ use App\Http\Controllers\SlideController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\HomeController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
+// use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\VerificationController;
 
 use App\Http\Controllers\BypassController;
 
@@ -56,7 +57,20 @@ Route::controller(BlogController::class)->group(function () {
     Route::delete('blog/{id}/delete', [BlogController::class, 'destroy'])->name('blog.delete');
 });
 
+// Auth::routes();
 Auth::routes(['verify' => true]);
+
+Route::get('/email/verify', [VerificationController::class, 'notice'])
+    ->middleware(['auth'])
+    ->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])
+    ->middleware(['auth', 'signed', 'throttle:6,1'])
+    ->name('verification.verify');
+
+Route::post('/email/verification-notification', [VerificationController::class, 'sendVerificationEmail'])
+    ->middleware(['auth', 'throttle:6,1'])
+    ->name('verification.send');
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
