@@ -18,7 +18,7 @@
                                     <div class="form__img">
                                         <label for="image">Upload cover (270 x 400)</label>
 
-                                        <input id="image" name="image" type="file" class="form-control @error('title') is-invalid @enderror" accept=".png, .jpg, .jpeg">
+                                        <input id="image" name="image" type="file" class="form-control @error('image') is-invalid @enderror" accept=".png, .jpg, .jpeg">
                                     </div>
                                 </div>
                             </div>
